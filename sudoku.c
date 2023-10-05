@@ -60,6 +60,39 @@ int is_valid(Node* n){
       }
     }
 
+    for (j = 0; j < 9; j++) {
+      int col_check[10] = {0};
+      for (i = 0; i < 9; i++) {
+        int num = n->sudo[i][j];
+        if (num == 0) {
+          if (col_check[num] == 1) {
+            return num;
+          } else {
+            col_check[num] = 1;
+          }
+        }
+      }
+    }
+
+    for (i = 0; i < 9; i++) {
+      for (j = 0; j < 9; j++) {
+        int submatrix_check[10] = {0};
+        for (k = 0; k < 3; k++) {
+          for (int l = 0; l < 3, l++) { 
+            int num = n->sudo[i + k][j + l];
+            if (num == 0) {
+              if (submatrix_check[num] == 1) {
+                return num;
+              } else {
+                submatrix_check[num] = 1;
+              }
+            }
+            
+          }
+        }
+      }
+    }
+
     return 1;
 }
 

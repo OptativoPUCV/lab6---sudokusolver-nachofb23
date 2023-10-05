@@ -57,3 +57,18 @@ sudoku.c:47:15: error: unused variable ‘k’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 fba8826
+Thu 05 Oct 2023 05:48:17 PM UTC: 
+ sudoku.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:81:32: error: left-hand operand of comma expression has no effect [-Werror=unused-value]
+   81 |           for (int l = 0; l < 3, l++) {
+      |                                ^
+sudoku.c:81:37: error: expected ‘;’ before ‘)’ token
+   81 |           for (int l = 0; l < 3, l++) {
+      |                                     ^
+      |                                     ;
+cc1: all warnings being treated as errors
+Compilation failed
+2e30d43
