@@ -78,7 +78,7 @@ int is_valid(Node* n){
       for (j = 0; j < 9; j++) {
         int submatrix_check[10] = {0};
         for (k = 0; k < 3; k++) {
-          for (int l = 0; l < 3, l++) { 
+          for (int l = 0; l < 3; l++) { 
             int num = n->sudo[i + k][j + l];
             if (num == 0) {
               if (submatrix_check[num] == 1) {
