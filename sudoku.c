@@ -52,7 +52,7 @@ int is_valid(Node* n){
         int num = n->sudo[i][j];
         if (num != 0) {
           if (row_check[num] == 1) {
-            return num;
+            return 0;
           } else {
             row_check[num] = 1;
           }
@@ -66,7 +66,7 @@ int is_valid(Node* n){
         int num = n->sudo[i][j];
         if (num != 0) {
           if (col_check[num] == 1) {
-            return num;
+            return 0;
           } else {
             col_check[num] = 1;
           }
@@ -82,7 +82,7 @@ int is_valid(Node* n){
             int num = n->sudo[i + k][j + l];
             if (num != 0) {
               if (submatrix_check[num] == 1) {
-                return num;
+                return 0;
               } else {
                 submatrix_check[num] = 1;
               }
