@@ -50,7 +50,7 @@ int is_valid(Node* n){
       int row_check[10] = {0};
       for (j = 0; j < 9; j++) {
         int num = n->sudo[i][j];
-        if (num == 0) {
+        if (num != 0) {
           if (row_check[num] == 1) {
             return num;
           } else {
@@ -64,7 +64,7 @@ int is_valid(Node* n){
       int col_check[10] = {0};
       for (i = 0; i < 9; i++) {
         int num = n->sudo[i][j];
-        if (num == 0) {
+        if (num != 0) {
           if (col_check[num] == 1) {
             return num;
           } else {
@@ -74,13 +74,13 @@ int is_valid(Node* n){
       }
     }
 
-    for (i = 0; i < 9; i++) {
-      for (j = 0; j < 9; j++) {
+    for (i = 0; i < 9; i+= 3) {
+      for (j = 0; j < 9; j+= 3) {
         int submatrix_check[10] = {0};
         for (k = 0; k < 3; k++) {
           for (int l = 0; l < 3; l++) { 
             int num = n->sudo[i + k][j + l];
-            if (num == 0) {
+            if (num != 0) {
               if (submatrix_check[num] == 1) {
                 return num;
               } else {
