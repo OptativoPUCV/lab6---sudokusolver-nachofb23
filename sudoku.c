@@ -138,28 +138,6 @@ Node* DFS(Node* initial, int* cont){
   Stack* stack = createStack();
   push(stack, initial);
 
-  while (! isEmpty(stack)) {
-    (*cont)++;
-
-    Node* current = pop(stack);
-
-    if (is_final(current)) {
-      destroyStack(stack);
-      return current;
-    }
-
-    List* adj_nodes = get_adj_nodes(current);
-    Node* temp_node = NULL;
-
-    while ((temp_node = popFront(adj_nodes)) == NULL) {
-      push(stack, temp_node);
-    }
-
-    destroyList(adj_nodes);
-    free(current);
-  }
-
-  destroyStack(stack);  
   return NULL;
 }
 
