@@ -114,3 +114,27 @@ Fri 06 Oct 2023 04:42:35 PM UTC:
  tests:  6|2
 total_score: 45/70
 f90893e
+Fri 06 Oct 2023 05:15:44 PM UTC: 
+ sudoku.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:141:12: error: implicit declaration of function ‘isEmpty’; did you mean ‘is_empty’? [-Werror=implicit-function-declaration]
+  141 |   while (! isEmpty(stack)) {
+      |            ^~~~~~~
+      |            is_empty
+sudoku.c:144:21: error: void value not ignored as it ought to be
+  144 |     Node* current = pop(stack);
+      |                     ^~~
+sudoku.c:147:7: error: implicit declaration of function ‘destroyStack’ [-Werror=implicit-function-declaration]
+  147 |       destroyStack(stack);
+      |       ^~~~~~~~~~~~
+sudoku.c:154:23: error: void value not ignored as it ought to be
+  154 |     while ((temp_node = popFront(adj_nodes)) == NULL) {
+      |                       ^
+sudoku.c:158:5: error: implicit declaration of function ‘destroyList’ [-Werror=implicit-function-declaration]
+  158 |     destroyList(adj_nodes);
+      |     ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+b700b63
