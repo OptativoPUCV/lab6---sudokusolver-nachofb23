@@ -44,20 +44,56 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  int i, j;
-  for (i = 0; i < 9; i++) {
-    for (j = 0; j < 9; j++) {
-      if (n->sudo[i][j] == 0) {
-        return 0;
-      }
-      if (n->sudo[i][j] == n->sudo[i][0] ||
-          n->sudo[i][j] == n->sudo[0][j] ||
-          n->sudo[i][j] == n->sudo[3 * (i / 3)][3 * (j / 3)]) {
-        return 0;
+    int i, j, k;
+
+    for (i = 0; i < 9; i++) {
+      int row_check[10] = {0};
+      for (j = 0; j < 9; j++) {
+        int num = n->sudo[i][j];
+        if (num != 0) {
+          if (row_check[num] == 1) {
+            return 0;
+          } else {
+            row_check[num] = 1;
+          }
+        }
       }
     }
-  }
-  return 1;
+
+    for (j = 0; j < 9; j++) {
+      int col_check[10] = {0};
+      for (i = 0; i < 9; i++) {
+        int num = n->sudo[i][j];
+        if (num != 0) {
+          if (col_check[num] == 1) {
+            return 0;
+          } else {
+            col_check[num] = 1;
+          }
+        }
+      }
+    }
+
+    for (i = 0; i < 9; i+= 3) {
+      for (j = 0; j < 9; j+= 3) {
+        int submatrix_check[10] = {0};
+        for (k = 0; k < 3; k++) {
+          for (int l = 0; l < 3; l++) { 
+            int num = n->sudo[i + k][j + l];
+            if (num != 0) {
+              if (submatrix_check[num] == 1) {
+                return 0;
+              } else {
+                submatrix_check[num] = 1;
+              }
+            }
+            
+          }
+        }
+      }
+    }
+
+    return 1;
 }
 
 
