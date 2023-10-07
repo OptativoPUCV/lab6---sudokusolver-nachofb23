@@ -144,3 +144,14 @@ Fri 06 Oct 2023 06:41:48 PM UTC:
  tests:  6|2
 total_score: 45/70
 676aa36
+Sat 07 Oct 2023 09:34:28 PM UTC: 
+ sudoku.c | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:101:11: error: unused variable ‘list’ [-Werror=unused-variable]
+  101 |     List* list = createList();
+      |           ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+44d3bbe
