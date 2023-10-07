@@ -112,7 +112,7 @@ List* get_adj_nodes(Node* n){
           }
         }
       }  
-  return 0;
+  return 1;
 }
 
 
